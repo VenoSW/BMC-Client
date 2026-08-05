@@ -24,7 +24,18 @@
 </head>
 <body>
 
-  <iframe src="https://script.google.com/macros/s/AKfycbwyo1PldswaxUd-4OS9sZPmbLpzI-QoL8JHcVZyTLQYArnha6uY0gwHhBKV3_FGr0U5/exec"></iframe>
+  <!--
+    allow="geolocation; camera": WAJIB ada supaya Permissions Policy browser
+    (terutama di HP) tidak memblokir akses lokasi & kamera untuk konten di
+    dalam iframe ini. Tanpa atribut ini, permintaan navigator.geolocation
+    dari halaman script.google.com (yang di-iframe di domain Vercel yang
+    berbeda) akan DITOLAK OTOMATIS oleh browser tanpa dialog izin sama
+    sekali -- persis gejala "lokasi tidak dapat diambil".
+  -->
+  <iframe
+    src="https://script.google.com/macros/s/AKfycbwyo1PldswaxUd-4OS9sZPmbLpzI-QoL8JHcVZyTLQYArnha6uY0gwHhBKV3_FGr0U5/exec"
+    allow="geolocation *; camera *"
+  ></iframe>
 
 </body>
 </html>
